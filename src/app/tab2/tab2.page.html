@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Tareas completadas
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,6 +12,28 @@
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-list>
+          <ion-item-sliding *ngFor="let item of compl let i=index">
+            <ion-item>
+              <ion-label>{{item}}</ion-label>
+            </ion-item>
+            <ion-item-options side="end" (ionSwipe)="remCompleteTask(i)">
+              <ion-item-option expandable color="danger">
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+            <ion-item-options side="start" (ionSwipe)="uncompleteTask(i)">
+              <ion-item-option expandable color="warning">
+                <ion-icon name="return-up-back-outline"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-list>
+    </ion-col>
+  </ion-row>
 </ion-content>
